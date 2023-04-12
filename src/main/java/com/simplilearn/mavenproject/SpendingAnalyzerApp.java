@@ -26,7 +26,7 @@ public class SpendingAnalyzerApp {
         Map<String, List<Transaction>> categories = categorizeTransactions(transactions);
 
         // Analyze transactions
-        TransactionAnalyzer analyzer = new TransactionAnalyzer(); s
+        TransactionAnalyzer analyzer = new TransactionAnalyzer();
         analyzer.analyzeTransactions(categories);
     }
 
