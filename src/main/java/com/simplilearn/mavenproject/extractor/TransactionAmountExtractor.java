@@ -1,4 +1,4 @@
-package com.simplilearn.mavenproject.service;
+package com.simplilearn.mavenproject.extractor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,10 +9,10 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 
 import com.simplilearn.mavenproject.domain.Transaction;
 
-public class TransactionExtractor {
+public class TransactionAmountExtractor {
     private final Map<String, String> categories;
 
-    public TransactionExtractor(String document) {
+    public TransactionAmountExtractor(String document) {
         if (document == null || document.isEmpty()) {
             throw new IllegalArgumentException("Document cannot be null or empty.");
         }
@@ -29,7 +29,7 @@ public class TransactionExtractor {
             }
         }
     }
-        
+
     public Map<String, List<Transaction>> categorizeTransactions(List<Transaction> transactions) {
         Map<String, List<Transaction>> categorizedTransactions = new HashMap<>();
         for (Transaction transaction : transactions) {
@@ -51,7 +51,7 @@ public class TransactionExtractor {
     }
 
     // This method should be implemented
-    public List<Transaction> extractTransactions(PDDocument pdfDocument) {
+    public List<Double> extractTransactionAmounts(PDDocument pdfDocument) {
         return new ArrayList<>();
     }
 }

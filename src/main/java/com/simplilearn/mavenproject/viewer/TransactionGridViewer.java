@@ -1,4 +1,4 @@
-package com.simplilearn.mavenproject.service;
+package com.simplilearn.mavenproject.viewer;
 
 import com.simplilearn.mavenproject.domain.Transaction;
 import com.simplilearn.mavenproject.parsing.TransactionParser;

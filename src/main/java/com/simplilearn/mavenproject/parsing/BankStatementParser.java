@@ -1,4 +1,5 @@
 package com.simplilearn.mavenproject.parsing;
+import com.simplilearn.mavenproject.extractor.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,7 +15,6 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.util.PDFTextStripper;
 
 import com.simplilearn.mavenproject.domain.Transaction;
-import com.simplilearn.mavenproject.service.TransactionExtractor;
 import com.simplilearn.mavenproject.service.TransactionCategorizer;
 
 
