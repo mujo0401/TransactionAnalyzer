@@ -9,12 +9,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.simplilearn.mavenproject.domain.Transaction;
+import com.simplilearn.mavenproject.service.Transaction;
 
 
 
 public class TransactionParser {
-    private static final String[] DATE_FORMATS = { "MM/dd/yyyy", "yyyy/MM/dd" };
+    private static final String[] DATE_FORMATS = { "MM/dd/yyyy", "yyyy/MM/dd", "m/dd" };
     private static final String AMOUNT_REGEX = "[-+]?[0-9]*\\.?[0-9]+";
     private static final String[] AMOUNT_PREFIXES = { "$", "USD" };
 
@@ -31,10 +31,10 @@ public class TransactionParser {
                     transactions.add(currentTransaction);
                 }
                 BigDecimal amount = new BigDecimal("0.0");
-                currentTransaction = new Transaction(null, line, amount);
+                currentTransaction = new Transaction(null,null, line, amount);
             }
             if (currentTransaction != null) {
-                parseTransactionLine(currentTransaction, line);
+                parseTransactionLine(currentTransaction, line, line);
             }
         }
         if (currentTransaction != null) {
@@ -56,7 +56,7 @@ public class TransactionParser {
         return false;
     }
 
-    private void parseTransactionLine(Transaction transaction, String line) throws ParseException {
+    private void parseTransactionLine(Transaction transaction, String line, String pageText) throws ParseException {
         SimpleDateFormat dateFormat;
         Date date = null;
         String description = null;
@@ -92,3 +92,4 @@ public class TransactionParser {
         return null;
     }
 }
+

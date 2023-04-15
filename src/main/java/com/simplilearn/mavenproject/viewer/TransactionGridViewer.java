@@ -1,8 +1,6 @@
-package com.simplilearn.mavenproject.service;
-
-import com.simplilearn.mavenproject.domain.Transaction;
+package com.simplilearn.mavenproject.viewer;
 import com.simplilearn.mavenproject.parsing.TransactionParser;
-
+import com.simplilearn.mavenproject.service.Transaction;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -19,10 +17,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-
-
-
-
 
 public class TransactionGridViewer extends JFrame {
     private static final long serialVersionUID = 1L;
@@ -44,7 +38,6 @@ public class TransactionGridViewer extends JFrame {
                         transaction.getDescription(), transaction.getAmount(), false});
             }
         }
-
         getContentPane().add(scrollPane, BorderLayout.CENTER);
         pack();
     }
@@ -64,11 +57,9 @@ public class TransactionGridViewer extends JFrame {
                 JOptionPane.showMessageDialog(this, "Invalid bank statement file selected.");
                 return;
             }
-
             //Load PDF document
             TransactionParser parser = new TransactionParser();
             Map<String, List<Transaction>> categories = parser.getTransactions(selectedFile);
-
 
             // Display transactions in a grid
             setTitle("Transaction Viewer");
@@ -85,12 +76,10 @@ public class TransactionGridViewer extends JFrame {
                             transaction.getDescription(), transaction.getAmount(), false});
                 }
             }
-
             getContentPane().add(scrollPane, BorderLayout.CENTER);
             pack();
         }
     }
-
     private boolean isValidBankStatement(File file) {
         // Add your validation logic here
         return true;
