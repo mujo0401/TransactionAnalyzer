@@ -1,6 +1,5 @@
 package com.simplilearn.mavenproject.service;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,8 +11,6 @@ import java.util.List;
 
 
 public class TransactionDataLoader {
-
-
     // Load transactions from a file
     public List<Transaction> getTransactions() throws IOException {
         List<Transaction> transactions = new ArrayList<>();
@@ -44,10 +41,8 @@ public class TransactionDataLoader {
                 transaction.setAmount(amount);
                 transaction.setCategory(category);
             }
-            }
-            
+            }           
         }
-
         return transactions;
     }
 }

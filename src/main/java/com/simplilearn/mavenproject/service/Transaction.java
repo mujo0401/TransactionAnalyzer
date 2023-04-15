@@ -16,44 +16,57 @@ public class Transaction {
         this.description = description;
         this.amount = amount;       
     }
+    
     public Transaction(Date date, String description, BigDecimal amount) {
         this.date = date;
         this.description = description;
         this.amount = amount;
     }
+    
     public Transaction(LocalDate date2, String description2, BigDecimal amount2) {
 		// TODO Auto-generated constructor stub
 	}
+    
 	public void setDate(Date date) {
         this.date = date;
     }
+	
     public void setDescription(String description) {
         this.description = description;
     }
+    
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
-    }    
+    }
+    
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
+    
     public String getAccountNumber() {
         return accountNumber;
     }
+    
     public Date getDate() {
         return date;
     }
+    
     public String getDescription() {
         return description;
     }
+    
     public BigDecimal getAmount() {
         return amount;
     }
+    
     public String getCategory() {
         return category;
     }
+    
     public void setCategory(String category) {
         this.category = category;
     }
+    
     @Override
     public String toString() {
     	return "Transaction{" +
@@ -62,6 +75,7 @@ public class Transaction {
                 ", amount=" + amount +
                 '}';
     }
+    
 	public void setDate(LocalDate date2) {
 		// TODO Auto-generated method stub		
 	}

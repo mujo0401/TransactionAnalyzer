@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public class TransactionAnalyzer {
 
     public void analyzeTransactions(Map<String, List<Transaction>> categories) {

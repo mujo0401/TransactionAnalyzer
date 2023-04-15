@@ -1,15 +1,12 @@
 package com.simplilearn.mavenproject.viewer;
+
 import com.simplilearn.mavenproject.parsing.TransactionParser;
 import com.simplilearn.mavenproject.service.Transaction;
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.io.File;
-
-
 import java.util.List;
 import java.util.Map;
-
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -42,9 +39,6 @@ public class TransactionGridViewer extends JFrame {
         pack();
     }
 
-    /**
-     * 
-     */
     public void openBankStatement() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileFilter(new FileNameExtensionFilter("PDF files", "pdf")); // Set file filter to only allow PDF files
@@ -80,6 +74,7 @@ public class TransactionGridViewer extends JFrame {
             pack();
         }
     }
+    
     private boolean isValidBankStatement(File file) {
         // Add your validation logic here
         return true;

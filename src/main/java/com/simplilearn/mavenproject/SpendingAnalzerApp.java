@@ -2,7 +2,6 @@ package com.simplilearn.mavenproject;
 
 import com.simplilearn.mavenproject.service.Transaction;
 import javax.swing.*;
-
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import java.awt.*;
@@ -20,18 +19,13 @@ import com.simplilearn.mavenproject.service.TransactionDataLoader;
 
 public class SpendingAnalzerApp {
     private TransactionDataLoader dataLoader;
-
-
     private JFrame frame;
     private JLabel label;
     private JTextField textField;
     private JTextArea textArea;
 
-
     public SpendingAnalzerApp() {
-        dataLoader = new TransactionDataLoader();
-  
-
+        dataLoader = new TransactionDataLoader();  
         frame = new JFrame("Spending Analyzer App");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         label = new JLabel("Enter a category to view transactions (Grocery, Utilities, Medical, , Other):");
@@ -56,7 +50,6 @@ public class SpendingAnalzerApp {
         bottomPanel.add(selectFileButton);
         frame.add(bottomPanel, BorderLayout.SOUTH); // Add bottom panel to the south (bottom) of the frame
         
-
         // Add an ActionListener to the selectFileButton
         selectFileButton.addActionListener(new ActionListener() {
             @Override
@@ -93,9 +86,7 @@ public class SpendingAnalzerApp {
                     // Handle the exception appropriately, e.g., show an error message to the user
                 }
             }
-        });
-
-     
+        });     
     }
 
     private void parseBankStatementFile(java.io.File file) {

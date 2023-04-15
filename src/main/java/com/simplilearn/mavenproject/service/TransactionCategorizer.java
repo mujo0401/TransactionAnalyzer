@@ -9,6 +9,7 @@ public class TransactionCategorizer {
     public TransactionCategorizer(List<Transaction> transactions) {
         this.transactions = transactions;
     }
+    
     public Map<String, List<Transaction>> categorizeTransactions() {
         Map<String, List<Transaction>> categorizedTransactions = new HashMap<>();       
         for (Transaction transaction : transactions) {
@@ -17,6 +18,7 @@ public class TransactionCategorizer {
         }
         return categorizedTransactions;
     }
+    
     public String categorizeTransaction(Transaction transaction) {
         // Categorize transaction logic here
         return "Uncategorized";
