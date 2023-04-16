@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -82,7 +84,7 @@ public class TransactionExtractor {
     public List<Transaction> parseTransactions(String pageText) throws ParseException {
         List<Transaction> transactions = new ArrayList<>();
         SimpleDateFormat dateFormat;
-        Date date = null;
+        LocalDate date = null;
         String description = null;
         BigDecimal amount = new BigDecimal(0.0);
 
@@ -95,12 +97,8 @@ public class TransactionExtractor {
                 if (line.trim().isEmpty()) {
                     continue; // Skip empty lines
                 }
-                try {
-                    // Try parsing date from line using the current date format
-                    date = dateFormat.parse(line.trim());
-                } catch (ParseException e) {
-                    // Ignore and continue if date cannot be parsed with current format
-                }
+                // Try parsing date from line using the current date format
+				LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(date));
                 if (date != null) {
                     // If date is parsed, it means this line contains a transaction
                     // Extract description and amount from subsequent lines
@@ -145,7 +143,8 @@ public class TransactionExtractor {
     public Transaction parseTransactionLine(String line, SimpleDateFormat dateFormat, BigDecimal amount)
             throws ParseException {
         Date date = dateFormat.parse(line.trim());
-        return new Transaction(date, line, amount);       
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return new Transaction(localDate, line, amount);       
     }
 }
 	

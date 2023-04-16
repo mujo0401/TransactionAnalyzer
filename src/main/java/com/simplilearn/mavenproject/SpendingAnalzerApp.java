@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +18,7 @@ import com.simplilearn.mavenproject.service.TransactionDataLoader;
 
 public class SpendingAnalzerApp {
     private TransactionDataLoader dataLoader;
-    private JFrame frame;
+    private JFrame frame; 
     private JLabel label;
     private JTextField textField;
     private JTextArea textArea;
@@ -91,7 +90,7 @@ public class SpendingAnalzerApp {
 
     private void parseBankStatementFile(java.io.File file) {
         try {
-        	
+        		
             // Create a new CMapParser object
             // Use PDFBox to extract the text from the PDF file
             PDDocument document = PDDocument.load(file);
@@ -102,18 +101,20 @@ public class SpendingAnalzerApp {
             List<Transaction> transactions = new ArrayList<>();
 
             // Split the text into lines and process each line
-            String[] lines = text.split("3/6,\"Sage,\"1969.99");
+            String[] lines = text.split("\\r?\\n+\\n+");
+            //String[] lines = text.split("3/6, Sage, 1969.99");
             for (String line : lines) {
                 // Split the line into fields using a regular expression that matches the date format
-            	String[] fields = line.split(",");
-                if (fields.length == 3) {
+            	String[] fields = line.split("\\s",3);
+                if (fields.length == 5) {
+                    String[] dateFields = fields[1].split("/");
+                    int month = Integer.parseInt(dateFields[0]);
+                    int day = Integer.parseInt(dateFields[2]);
+                    LocalDate date = LocalDate.of(LocalDate.now().getYear(), month, day); // set the year to the current year
                     // Parse the transaction data from the fields
-                    String description = fields[0].trim();
-                    String amountStr = fields[1].trim();
-                    BigDecimal amount = new BigDecimal(amountStr);
-                    String[] dateFields = line.split("\\s+");
-                    LocalDate date = LocalDate.parse(dateFields[0], DateTimeFormatter.ofPattern("M/d"));
-                    // Create a new Transaction object with the parsed date and add it to the list of transactions
+                    String description = fields[3].trim();
+                    String amountStr = fields[4].trim();
+                    BigDecimal amount = new BigDecimal(amountStr);             
                     // Create a new Transaction object and add it to the list of transactions
                     Transaction transaction = new Transaction(date, description, amount);
                     transactions.add(transaction);
@@ -128,7 +129,10 @@ public class SpendingAnalzerApp {
             // Example: Print the parsed transactions to the console
             System.out.println("Parsed Transactions:");
             for (Transaction transaction : transactions) {
-                System.out.println(transaction);
+                System.out.println(transaction.getDate());
+                System.out.println(transaction.getDescription());
+                System.out.println(transaction.getAmount());
+                System.out.println();
             }
 
         } catch (IOException ex) {

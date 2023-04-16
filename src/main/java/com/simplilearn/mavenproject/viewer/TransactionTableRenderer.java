@@ -49,6 +49,7 @@ public class TransactionTableRenderer extends JFrame {
                         transaction.getDescription(), transaction.getAmount(), false});
             }
         }
+        
         getContentPane().add(scrollPane, BorderLayout.CENTER);
         pack();
     }

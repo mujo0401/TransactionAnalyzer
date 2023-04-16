@@ -8,6 +8,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -37,8 +39,10 @@ public class TransactionTableController extends JFrame {
 
     /**
      * Open a bank statement file and display transactions in a grid.
+     * @throws ParseException 
+     * @throws IOException 
      */
-    public void openBankStatement() {
+    public void openBankStatement() throws IOException, ParseException {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileFilter(new FileNameExtensionFilter("PDF files", "pdf")); // Set file filter to only allow PDF files
         int result = fileChooser.showOpenDialog(this);
@@ -51,7 +55,7 @@ public class TransactionTableController extends JFrame {
                 return;
             }
             // Load PDF document
-            TransactionParser parser = new TransactionParser();
+            TransactionParser parser = new TransactionParser(selectedFile);
             Map<String, List<Transaction>> categories = parser.getTransactions(selectedFile);
 
             // Display transactions in a grid

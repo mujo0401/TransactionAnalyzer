@@ -5,6 +5,8 @@ import com.simplilearn.mavenproject.service.Transaction;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.io.File;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JFileChooser;
@@ -18,8 +20,8 @@ import javax.swing.table.DefaultTableModel;
 public class TransactionGridViewer extends JFrame {
     private static final long serialVersionUID = 1L;
     private JTable table;
-    private DefaultTableModel model;
-
+    private DefaultTableModel model;  
+    
     public TransactionGridViewer(Map<String, List<Transaction>> categories) {
         setTitle("Transaction Viewer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,7 +41,7 @@ public class TransactionGridViewer extends JFrame {
         pack();
     }
 
-    public void openBankStatement() {
+    public void openBankStatement() throws IOException, ParseException {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileFilter(new FileNameExtensionFilter("PDF files", "pdf")); // Set file filter to only allow PDF files
         int result = fileChooser.showOpenDialog(this);
@@ -51,10 +53,9 @@ public class TransactionGridViewer extends JFrame {
                 JOptionPane.showMessageDialog(this, "Invalid bank statement file selected.");
                 return;
             }
-            //Load PDF document
-            TransactionParser parser = new TransactionParser();
+         // Load PDF document
+            TransactionParser parser = new TransactionParser(selectedFile);
             Map<String, List<Transaction>> categories = parser.getTransactions(selectedFile);
-
             // Display transactions in a grid
             setTitle("Transaction Viewer");
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
