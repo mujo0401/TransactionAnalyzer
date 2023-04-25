@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="3b619169-eb37-43d0-9049-a7a7e4a6a885" created="3.45.0" activeEnvironment="Default environment" name="ADB-Service-Call-Tests" projectVersion="" compositeProjectFormat="1.3" updated="3.45.0" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="3b619169-eb37-43d0-9049-a7a7e4a6a885" created="3.45.0" activeEnvironment="QUA" name="ADB-Service-Call-Tests" projectVersion="" compositeProjectFormat="1.3" updated="3.45.0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
   <con:properties/>
   <con:wssContainer/>
@@ -37,6 +37,15 @@
 // pw.close()
 // fos.close()</con:script>
   </con:eventHandlers>
+  <con:environment id="fd2cd29b-292c-4e17-b64c-20aba1ecedbb" name="QUA" index="0">
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
   <con:authRepository/>
+  <con:environmentSpec>
+    <con:entry environmentId="fd2cd29b-292c-4e17-b64c-20aba1ecedbb">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
   <con:tags/>
 </con:soapui-project>
