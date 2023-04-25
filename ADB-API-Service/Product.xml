@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Product" path="/odata/Product" id="e6d8fa14-c05a-434e-ab5f-f5a92dc3339e" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="e6d8fa14-c05a-434e-ab5f-f5a92dc3339efileName">Product</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="productCode_FETCH_CODE" id="2cfa419e-712a-452c-8a3b-299a71e92464" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:request name="GET_productCode_Fee" id="9f2e3038-13ae-4211-ac2c-ab6dc0667927" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:request/>
+      <con:credentials>
+        <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+        <con:authType>Global HTTP Settings</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="fd2cd29b-292c-4e17-b64c-20aba1ecedbb">
+          <con:authProfile>Basic</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:request name="GET_producrCode_Endorsement" id="51566d56-19a9-43bc-841c-a8f34cd9936f" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:request/>
+      <con:credentials>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+    <con:request name="GET_productCode_TransCode" id="21fe2e63-8aff-4539-9047-037fe0f4502c" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:request/>
+      <con:credentials>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

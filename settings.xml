@@ -38,6 +38,9 @@
 // fos.close()</con:script>
   </con:eventHandlers>
   <con:environment id="fd2cd29b-292c-4e17-b64c-20aba1ecedbb" name="QUA" index="0">
+    <con:service type="REST" name="ADB API Service">
+      <con:endpoint authProfile="Basic" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://quaadbrestapi.oldrepublictitle.com</con:endpoint>
+    </con:service>
     <con:databaseConnectionContainer/>
     <con:jmsConnectionContainer/>
   </con:environment>
