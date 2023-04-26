@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="d17b683c-ed27-461d-96e9-84743b4177f9" name="Mobile" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="d17b683c-ed27-461d-96e9-84743b4177f9fileName">Mobile</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

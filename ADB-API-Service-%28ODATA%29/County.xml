@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="County" path="/odata/county" id="8bc7f05f-6417-46b2-8a50-dffe631e8519" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="8bc7f05f-6417-46b2-8a50-dffe631e8519fileName">County</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="countyCode_Fetch_Code" id="bfc2f572-8c72-497e-8837-a264aea20dd7" method="GET">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>$count</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>$filter</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:request name="GET_countyCode" id="9375c0be-8b55-46ed-8776-9acc9b4205b5" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:request/>
+      <con:originalUri>https://quaadbrestapi.oldrepublictitle.com/odata/County</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="$filter" value="stateCode in ('22','12','09')"/>
+        <con:entry key="$count" value="true"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>$count</con:entry>
+        <con:entry>$filter</con:entry>
+      </con:parameterOrder>
+      <con:environmentSpec>
+        <con:entry environmentId="d1753e97-71e2-45e3-bf16-10a3239973ae">
+          <con:authProfile>Basic</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="39b9cd34-67f9-4620-86ca-636a8386cbec">
+          <con:authProfile>Basic</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="0b9f3e20-4b1a-43d5-a7e4-bef63f360cf5">
+          <con:authProfile>Basic</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="416f01e6-0826-4108-a75c-d49ce478f75b">
+          <con:authProfile>Basic</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="6b31cce1-d611-4c22-8c5c-64363a4440ab">
+          <con:authProfile>Basic</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="a9e5ff83-f16b-43a7-b119-a305e40a12d0">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="d001c550-370a-4ff3-b50b-0cbb7ada13f5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="8c30a968-1e67-49d0-80b6-976c109a6db1">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="feddf23e-7ed1-4d23-afbf-5e83b1f9f71d">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="073b0c94-c1b5-4543-8000-338a898a9def">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="01cea897-22af-44a3-8ac7-196e99af8159">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="d9765a7e-f9cc-46de-9e86-cb11b9e9df4d">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="7e658256-54e9-4d62-82d1-e1a36196d84a">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="fb4db91b-3987-45a9-bc28-c2b01b77f659">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="6bd726a5-4df9-4aa6-9141-2f9cda339b9b">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="384e4af3-cc24-42b0-b2d1-25be2577fb79">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="5735edb3-eb60-4743-9a98-34461584a3f1">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="6986d87f-fafc-4f95-b815-51030c549172">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="be6439ad-3393-425d-85be-2cdae3b1b471">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="6005ead6-39c0-4df7-a938-a646055a5fb3">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="64d866f8-047a-4d38-ad36-27325f839815">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="a51a3400-507b-414a-ad6d-bd45642c06a3">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="d68fafc9-cf22-49c1-8528-9d6ed500cc19">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="d050c1cf-c198-45f4-ad45-3862eb887a02">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="91b60a06-d4ea-4217-a252-5d8e55d2e3b4">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="a535cfce-3ffa-4561-89ad-0b6be43b7db3">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="40acd7eb-73d0-44ce-ba42-01298f067f7b">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="3002c589-a346-420a-93ec-add0d7974d9c">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="6c4d65d0-ade2-42c5-8d4d-5fcfd0f5d5f6">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="b35beb76-ceb0-4bb7-a820-2590dff62892">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="d4c41a9c-bd76-4389-bff4-d6bccbcb945e">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="f84e4022-c265-4da5-813a-f82a5fa5b900">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="4e081ab1-d267-4988-a44c-c50cea14b61e">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="ace7b7db-eb0c-41ee-90d4-2722fd10bf91">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="e29c23d0-5468-4009-b0a0-ecb12b830f38">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="700e8642-3b9e-405f-835d-2cfb64316459">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="f44247f2-f704-4677-b330-2ec337b6e27f">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="0cc0f8bc-bb14-428c-bf73-16feabb722d1">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="f0298959-4f1b-4f05-ac52-32c3db8fcf1a">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="e0a482c2-1118-419b-8c51-b48bbedbf8e3">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="849e5d66-d5a5-4a70-b988-5688ca599541">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="fcfae6e2-7f45-4acd-aa43-e89e6c07e88c">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="c71b440d-5965-4751-8c7b-8ed8e0a9debc">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="01d715ab-31a1-4f8b-94d1-e6756c5fa1fb">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="a1862c8a-8fbf-480a-97bd-a0dadb8ce867">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="b9a429f0-139c-455b-91bc-50b995f0f3e1">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="50e84a43-c218-4346-9a29-d442369cbde4">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="f60abdcc-733e-4a94-8ed8-ba99de758406">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="db574a40-44cd-4d98-a1c4-16fa4aa5ea67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="dd811698-9f1e-4a0f-a8ca-73cf75743d35">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="d1753e97-71e2-45e3-bf16-10a3239973ae">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="39b9cd34-67f9-4620-86ca-636a8386cbec">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="0b9f3e20-4b1a-43d5-a7e4-bef63f360cf5">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="416f01e6-0826-4108-a75c-d49ce478f75b">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="6b31cce1-d611-4c22-8c5c-64363a4440ab">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="a9e5ff83-f16b-43a7-b119-a305e40a12d0">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="d001c550-370a-4ff3-b50b-0cbb7ada13f5">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="8c30a968-1e67-49d0-80b6-976c109a6db1">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="feddf23e-7ed1-4d23-afbf-5e83b1f9f71d">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="073b0c94-c1b5-4543-8000-338a898a9def">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="01cea897-22af-44a3-8ac7-196e99af8159">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="d9765a7e-f9cc-46de-9e86-cb11b9e9df4d">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="7e658256-54e9-4d62-82d1-e1a36196d84a">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="fb4db91b-3987-45a9-bc28-c2b01b77f659">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="6bd726a5-4df9-4aa6-9141-2f9cda339b9b">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="384e4af3-cc24-42b0-b2d1-25be2577fb79">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="5735edb3-eb60-4743-9a98-34461584a3f1">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="6986d87f-fafc-4f95-b815-51030c549172">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="be6439ad-3393-425d-85be-2cdae3b1b471">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="6005ead6-39c0-4df7-a938-a646055a5fb3">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="64d866f8-047a-4d38-ad36-27325f839815">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="a51a3400-507b-414a-ad6d-bd45642c06a3">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="d68fafc9-cf22-49c1-8528-9d6ed500cc19">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="d050c1cf-c198-45f4-ad45-3862eb887a02">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="91b60a06-d4ea-4217-a252-5d8e55d2e3b4">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="a535cfce-3ffa-4561-89ad-0b6be43b7db3">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="40acd7eb-73d0-44ce-ba42-01298f067f7b">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="3002c589-a346-420a-93ec-add0d7974d9c">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="6c4d65d0-ade2-42c5-8d4d-5fcfd0f5d5f6">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="b35beb76-ceb0-4bb7-a820-2590dff62892">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="d4c41a9c-bd76-4389-bff4-d6bccbcb945e">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="f84e4022-c265-4da5-813a-f82a5fa5b900">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="4e081ab1-d267-4988-a44c-c50cea14b61e">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="ace7b7db-eb0c-41ee-90d4-2722fd10bf91">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="e29c23d0-5468-4009-b0a0-ecb12b830f38">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="700e8642-3b9e-405f-835d-2cfb64316459">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="f44247f2-f704-4677-b330-2ec337b6e27f">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="0cc0f8bc-bb14-428c-bf73-16feabb722d1">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="f0298959-4f1b-4f05-ac52-32c3db8fcf1a">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="e0a482c2-1118-419b-8c51-b48bbedbf8e3">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="849e5d66-d5a5-4a70-b988-5688ca599541">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="fcfae6e2-7f45-4acd-aa43-e89e6c07e88c">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="c71b440d-5965-4751-8c7b-8ed8e0a9debc">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="01d715ab-31a1-4f8b-94d1-e6756c5fa1fb">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="a1862c8a-8fbf-480a-97bd-a0dadb8ce867">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="b9a429f0-139c-455b-91bc-50b995f0f3e1">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="50e84a43-c218-4346-9a29-d442369cbde4">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="f60abdcc-733e-4a94-8ed8-ba99de758406">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="db574a40-44cd-4d98-a1c4-16fa4aa5ea67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="dd811698-9f1e-4a0f-a8ca-73cf75743d35">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="d1753e97-71e2-45e3-bf16-10a3239973ae">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="39b9cd34-67f9-4620-86ca-636a8386cbec">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="0b9f3e20-4b1a-43d5-a7e4-bef63f360cf5">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="416f01e6-0826-4108-a75c-d49ce478f75b">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="6b31cce1-d611-4c22-8c5c-64363a4440ab">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="a9e5ff83-f16b-43a7-b119-a305e40a12d0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="d001c550-370a-4ff3-b50b-0cbb7ada13f5">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="8c30a968-1e67-49d0-80b6-976c109a6db1">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="feddf23e-7ed1-4d23-afbf-5e83b1f9f71d">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="073b0c94-c1b5-4543-8000-338a898a9def">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="01cea897-22af-44a3-8ac7-196e99af8159">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="d9765a7e-f9cc-46de-9e86-cb11b9e9df4d">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="7e658256-54e9-4d62-82d1-e1a36196d84a">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="fb4db91b-3987-45a9-bc28-c2b01b77f659">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="6bd726a5-4df9-4aa6-9141-2f9cda339b9b">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="384e4af3-cc24-42b0-b2d1-25be2577fb79">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="5735edb3-eb60-4743-9a98-34461584a3f1">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="6986d87f-fafc-4f95-b815-51030c549172">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="be6439ad-3393-425d-85be-2cdae3b1b471">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="6005ead6-39c0-4df7-a938-a646055a5fb3">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="64d866f8-047a-4d38-ad36-27325f839815">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="a51a3400-507b-414a-ad6d-bd45642c06a3">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="d68fafc9-cf22-49c1-8528-9d6ed500cc19">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="d050c1cf-c198-45f4-ad45-3862eb887a02">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="91b60a06-d4ea-4217-a252-5d8e55d2e3b4">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="a535cfce-3ffa-4561-89ad-0b6be43b7db3">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="40acd7eb-73d0-44ce-ba42-01298f067f7b">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="3002c589-a346-420a-93ec-add0d7974d9c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="6c4d65d0-ade2-42c5-8d4d-5fcfd0f5d5f6">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="b35beb76-ceb0-4bb7-a820-2590dff62892">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="d4c41a9c-bd76-4389-bff4-d6bccbcb945e">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="f84e4022-c265-4da5-813a-f82a5fa5b900">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="4e081ab1-d267-4988-a44c-c50cea14b61e">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="ace7b7db-eb0c-41ee-90d4-2722fd10bf91">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="e29c23d0-5468-4009-b0a0-ecb12b830f38">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="700e8642-3b9e-405f-835d-2cfb64316459">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="f44247f2-f704-4677-b330-2ec337b6e27f">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="0cc0f8bc-bb14-428c-bf73-16feabb722d1">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="f0298959-4f1b-4f05-ac52-32c3db8fcf1a">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="e0a482c2-1118-419b-8c51-b48bbedbf8e3">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="849e5d66-d5a5-4a70-b988-5688ca599541">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="fcfae6e2-7f45-4acd-aa43-e89e6c07e88c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="c71b440d-5965-4751-8c7b-8ed8e0a9debc">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="01d715ab-31a1-4f8b-94d1-e6756c5fa1fb">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="a1862c8a-8fbf-480a-97bd-a0dadb8ce867">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="b9a429f0-139c-455b-91bc-50b995f0f3e1">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="50e84a43-c218-4346-9a29-d442369cbde4">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="f60abdcc-733e-4a94-8ed8-ba99de758406">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="db574a40-44cd-4d98-a1c4-16fa4aa5ea67">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="dd811698-9f1e-4a0f-a8ca-73cf75743d35">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>
