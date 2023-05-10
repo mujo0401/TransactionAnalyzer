@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="4ca88275-7950-4578-8f99-cf5904d19a9a" name="ADB_API_Service" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="4ca88275-7950-4578-8f99-cf5904d19a9afileName">ADB_API_Service</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:tagId>593d0672-ba86-4fde-bd3f-b4a5f0a10949</con:tagId>
+</con:testSuite>

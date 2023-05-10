@@ -29,6 +29,38 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="d9765a7e-f9cc-46de-9e86-cb11b9e9df4d">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="a0bbae49-022a-4432-a0f7-fbe0a0dfb405">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="91985573-3c7a-4063-bc2c-0c2f89d891e5">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="607f5d47-d2a7-4a1b-ab4a-d937049a1407">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="ac507401-eff7-4a98-808d-ad46d99bf22e">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="0a1db645-1d20-4a2c-885a-6fc3f04c10e3">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="bdf92b0b-3c2f-4766-afe7-a4b3145727ac">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b6de6a4e-6e95-434a-b59f-add26213977e">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="06283f68-3f31-49fe-b78d-c0e323fa015a">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="9fb8bef7-8b14-452f-8270-86d184a79849">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:restRequest>
     </con:config>
   </con:testStep>
@@ -58,6 +90,7 @@
               <con:element>meta</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -83,6 +116,7 @@
               <con:element>meta</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -108,6 +142,7 @@
               <con:element>base</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -124,6 +159,7 @@
               <con:element>meta</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -149,6 +185,7 @@
               <con:element>link</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -183,6 +220,7 @@
               <con:element>link</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -208,6 +246,7 @@
               <con:element>link</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -215,6 +254,7 @@
               <con:element>@crossorigin</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -258,6 +298,7 @@
               <con:element>link</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -310,6 +351,7 @@
               <con:element>link</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -344,6 +386,7 @@
               <con:element>script</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -351,6 +394,7 @@
               <con:element>@defer</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -376,6 +420,7 @@
               <con:element>script</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -383,6 +428,7 @@
               <con:element>@defer</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -408,6 +454,7 @@
               <con:element>script</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -415,6 +462,7 @@
               <con:element>@defer</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -463,9 +511,70 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="d9765a7e-f9cc-46de-9e86-cb11b9e9df4d">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="a0bbae49-022a-4432-a0f7-fbe0a0dfb405">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="91985573-3c7a-4063-bc2c-0c2f89d891e5">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="607f5d47-d2a7-4a1b-ab4a-d937049a1407">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="ac507401-eff7-4a98-808d-ad46d99bf22e">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="0a1db645-1d20-4a2c-885a-6fc3f04c10e3">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="bdf92b0b-3c2f-4766-afe7-a4b3145727ac">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b6de6a4e-6e95-434a-b59f-add26213977e">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="06283f68-3f31-49fe-b78d-c0e323fa015a">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="9fb8bef7-8b14-452f-8270-86d184a79849">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:restRequest>
     </con:config>
   </con:testStep>
   <con:properties/>
   <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="a0bbae49-022a-4432-a0f7-fbe0a0dfb405">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="91985573-3c7a-4063-bc2c-0c2f89d891e5">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="607f5d47-d2a7-4a1b-ab4a-d937049a1407">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="ac507401-eff7-4a98-808d-ad46d99bf22e">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="0a1db645-1d20-4a2c-885a-6fc3f04c10e3">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="bdf92b0b-3c2f-4766-afe7-a4b3145727ac">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="b6de6a4e-6e95-434a-b59f-add26213977e">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="06283f68-3f31-49fe-b78d-c0e323fa015a">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="9fb8bef7-8b14-452f-8270-86d184a79849">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:testCase>

@@ -1,0 +1,2470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="442cfda5-ce0d-4ee4-83ba-c81f89145970" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="User_Test (15)" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="442cfda5-ce0d-4ee4-83ba-c81f89145970fileName">User_Test-%2815%29</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="Environment Resolver" id="2f0322f7-dc38-4cf1-868a-0a771af758f9">
+    <con:settings/>
+    <con:config>
+      <script>def env = context.testCase.testSuite.project.getActiveEnvironment().getName() 
+log.info("Active Environment: " + env)
+
+def env =  context.testCase.testSuite.project.getEnvironmentByName("&lt;ENV NAME>");
+def restServ = env.getRestServiceAt(0); //get a REST service by its index
+//to get a SOAP service by the index, use env.getSoapServiceAt(0)
+//to get a REST service by the name, use env.getService("SERV NAME", com.eviware.soapui.config.ServiceConfig.Type.Enum.forString("REST"))
+//to get a SOAP service by the name, use env.getService("SERV NAME", com.eviware.soapui.config.ServiceConfig.Type.Enum.forString("SOAP")) 
+def endpointConf = restServ.getEndpoint().getConfig()
+endpointConf.setStringValue("&lt;NEW ENDPOINT URL>")</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="User_Service_Up (QUA User Service (15))" id="0231a330-a885-45e8-966d-88d6f80387bb">
+    <con:settings/>
+    <con:config service="User Service" resourcePath="/UserService.svc" methodName="Service_Availability" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="User_Service_Up (QUA User Service (15))" id="2703135a-5278-47eb-ac97-cbf4c79598e3" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:request/>
+        <con:originalUri>https://mn-qua-haweb15.oldrepublictitle.com/UserService.svc</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="8c7dcb1b-b067-4530-bff1-f9a5786a6fe9" name="Valid HTTP Status Codes (200)">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="c0073a1d-dbf6-4bd7-b7ca-c51bb2076547" name="Response SLA (200)">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="DataAndMetadataAssertion" id="2de49e8e-8d69-4f54-b6eb-f3c1b1e815da" name="User Service Response">
+          <con:configuration xsi:type="con:DataAndMetadataAssertion">
+            <con:mode>Received Data</con:mode>
+            <con:elements>
+              <con:path>//HTML[1]/@lang</con:path>
+              <con:element>@lang</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>en</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/link[1]</con:path>
+              <con:element>link</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/link[1]/@rel</con:path>
+              <con:element>@rel</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>alternate</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/link[1]/@type</con:path>
+              <con:element>@type</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>text/xml</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/link[1]/@href</con:path>
+              <con:element>@href</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?disco</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/STYLE[1]</con:path>
+              <con:element>STYLE</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>#content{ FONT-SIZE: 0.7em; PADDING-BOTTOM: 2em; MARGIN-LEFT: 30px}BODY{MARGIN-TOP: 0px; MARGIN-LEFT: 0px; COLOR: #000000; FONT-FAMILY: Verdana; BACKGROUND-COLOR: white}P{MARGIN-TOP: 0px; MARGIN-BOTTOM: 12px; COLOR: #000000; FONT-FAMILY: Verdana}PRE{BORDER-RIGHT: #f0f0e0 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #f0f0e0 1px solid; MARGIN-TOP: -5px; PADDING-LEFT: 5px; FONT-SIZE: 1.2em; PADDING-BOTTOM: 5px; BORDER-LEFT: #f0f0e0 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #f0f0e0 1px solid; FONT-FAMILY: Courier New; BACKGROUND-COLOR: #e5e5cc}.heading1{MARGIN-TOP: 0px; PADDING-LEFT: 15px; FONT-WEIGHT: normal; FONT-SIZE: 26px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 3px; MARGIN-LEFT: -30px; WIDTH: 100%; COLOR: #ffffff; PADDING-TOP: 10px; FONT-FAMILY: Tahoma; BACKGROUND-COLOR: #003366}.intro{display: block; font-size: 1em;}</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/STYLE[1]/@type</con:path>
+              <con:element>@type</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>text/css</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/TITLE[1]</con:path>
+              <con:element>TITLE</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>UserService Service</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/@id</con:path>
+              <con:element>@id</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>content</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/@role</con:path>
+              <con:element>@role</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>main</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h1[1]</con:path>
+              <con:element>h1</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserService Service</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h1[1]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>heading1</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/BR[1]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>You have created a service.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[1]</con:path>
+              <con:element>P</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>To test this service, you will need to create a client and use it to call the service. You can do this using the svcutil.exe tool from the command line with the following syntax:</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[1]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/BR[1]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/PRE[1]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>svcutil.exe</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/PRE[1]/A[1]</con:path>
+              <con:element>A</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?wsdl</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/PRE[1]/A[1]/@HREF</con:path>
+              <con:element>@HREF</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?wsdl</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[2]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>You can also access the service description as a single file:</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[2]/BR[1]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[2]/PRE[1]/A[1]</con:path>
+              <con:element>A</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?singleWsdl</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[2]/PRE[1]/A[1]/@HREF</con:path>
+              <con:element>@HREF</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?singleWsdl</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[2]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[2]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>This will generate a configuration file and a code file that contains the client class. Add the two files to your client application and use the generated client class to call the Service. For example:</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[2]/BR[1]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h2[1]</con:path>
+              <con:element>h2</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>C#</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h2[1]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/br[1]</con:path>
+              <con:element>br</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[1]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>class</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[1]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[2]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Test</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[2]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[3]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>static void</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[3]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[4]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserServiceClient</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[4]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[5]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>new</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[5]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[6]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserServiceClient</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[6]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[7]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>// Use the 'client' variable to call operations on the service.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[7]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>darkgreen</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[8]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>// Always close the client.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[8]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>darkgreen</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/BR[2]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h2[2]</con:path>
+              <con:element>h2</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Visual Basic</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h2[2]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/br[2]</con:path>
+              <con:element>br</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[1]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Class</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[1]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[2]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Test</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[2]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[3]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Shared Sub</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[3]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[4]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Dim</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[4]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[5]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserServiceClient</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[5]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[6]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>New</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[6]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[7]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserServiceClient</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[7]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[8]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>' Use the 'client' variable to call operations on the service.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[8]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>darkgreen</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[9]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>' Always close the client.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[9]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>darkgreen</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[10]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>End Sub</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[10]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[11]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>End Class</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[11]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage><![CDATA[<HTML lang="en">
+   <HEAD>
+      <link rel="alternate" type="text/xml" href="https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?disco"/>
+      <STYLE type="text/css">#content{ FONT-SIZE: 0.7em; PADDING-BOTTOM: 2em; MARGIN-LEFT: 30px}BODY{MARGIN-TOP: 0px; MARGIN-LEFT: 0px; COLOR: #000000; FONT-FAMILY: Verdana; BACKGROUND-COLOR: white}P{MARGIN-TOP: 0px; MARGIN-BOTTOM: 12px; COLOR: #000000; FONT-FAMILY: Verdana}PRE{BORDER-RIGHT: #f0f0e0 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #f0f0e0 1px solid; MARGIN-TOP: -5px; PADDING-LEFT: 5px; FONT-SIZE: 1.2em; PADDING-BOTTOM: 5px; BORDER-LEFT: #f0f0e0 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #f0f0e0 1px solid; FONT-FAMILY: Courier New; BACKGROUND-COLOR: #e5e5cc}.heading1{MARGIN-TOP: 0px; PADDING-LEFT: 15px; FONT-WEIGHT: normal; FONT-SIZE: 26px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 3px; MARGIN-LEFT: -30px; WIDTH: 100%; COLOR: #ffffff; PADDING-TOP: 10px; FONT-FAMILY: Tahoma; BACKGROUND-COLOR: #003366}.intro{display: block; font-size: 1em;}</STYLE>
+      <TITLE>UserService Service</TITLE>
+   </HEAD>
+   <BODY>
+      <DIV id="content" role="main">
+         <h1 class="heading1">UserService Service</h1>
+         <BR/>
+         <P class="intro">
+            You have created a service.
+            <P class="intro">To test this service, you will need to create a client and use it to call the service. You can do this using the svcutil.exe tool from the command line with the following syntax:</P>
+            <BR/>
+            <PRE>
+               svcutil.exe
+               <A HREF="https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?wsdl">https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?wsdl</A>
+            </PRE>
+            <P>
+               You can also access the service description as a single file:
+               <BR/>
+               <PRE>
+                  <A HREF="https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?singleWsdl">https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?singleWsdl</A>
+               </PRE>
+            </P>
+         </P>
+         <P class="intro">
+            This will generate a configuration file and a code file that contains the client class. Add the two files to your client application and use the generated client class to call the Service. For example:
+            <BR/>
+         </P>
+         <h2 class="intro">C#</h2>
+         <br/>
+         <PRE>
+            <font color="blue">class</font>
+            <font color="black">Test</font>
+            {
+            <font color="blue">static void</font>
+            Main()
+    {
+            <font color="black">UserServiceClient</font>
+            client =
+            <font color="blue">new</font>
+            <font color="black">UserServiceClient</font>
+            ();
+            <font color="darkgreen">// Use the 'client' variable to call operations on the service.</font>
+            <font color="darkgreen">// Always close the client.</font>
+            client.Close();
+    }
+}
+         </PRE>
+         <BR/>
+         <h2 class="intro">Visual Basic</h2>
+         <br/>
+         <PRE>
+            <font color="blue">Class</font>
+            <font color="black">Test</font>
+            <font color="blue">Shared Sub</font>
+            Main()
+            <font color="blue">Dim</font>
+            client As
+            <font color="black">UserServiceClient</font>
+            =
+            <font color="blue">New</font>
+            <font color="black">UserServiceClient</font>
+            ()
+            <font color="darkgreen">' Use the 'client' variable to call operations on the service.</font>
+            <font color="darkgreen">' Always close the client.</font>
+            client.Close()
+            <font color="blue">End Sub</font>
+            <font color="blue">End Class</font>
+         </PRE>
+      </DIV>
+   </BODY>
+</HTML>]]></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="d9765a7e-f9cc-46de-9e86-cb11b9e9df4d">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="a0bbae49-022a-4432-a0f7-fbe0a0dfb405">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="91985573-3c7a-4063-bc2c-0c2f89d891e5">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="607f5d47-d2a7-4a1b-ab4a-d937049a1407">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="ac507401-eff7-4a98-808d-ad46d99bf22e">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="0a1db645-1d20-4a2c-885a-6fc3f04c10e3">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="bdf92b0b-3c2f-4766-afe7-a4b3145727ac">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b6de6a4e-6e95-434a-b59f-add26213977e">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="06283f68-3f31-49fe-b78d-c0e323fa015a">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="9fb8bef7-8b14-452f-8270-86d184a79849">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="User_Service_Up (QUA User Service (16))" id="813e825f-e2ae-4fc3-9d91-bd9677c59e6f">
+    <con:settings/>
+    <con:config service="User Service" resourcePath="/UserService.svc" methodName="Service_Availability" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="User_Service_Up (QUA User Service (16))" id="2703135a-5278-47eb-ac97-cbf4c79598e3" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:request/>
+        <con:originalUri>https://mn-qua-haweb15.oldrepublictitle.com/UserService.svc</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="8c7dcb1b-b067-4530-bff1-f9a5786a6fe9" name="Valid HTTP Status Codes (200)">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="c0073a1d-dbf6-4bd7-b7ca-c51bb2076547" name="Response SLA (200)">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="DataAndMetadataAssertion" id="2de49e8e-8d69-4f54-b6eb-f3c1b1e815da" name="User Service Response">
+          <con:configuration xsi:type="con:DataAndMetadataAssertion">
+            <con:mode>Received Data</con:mode>
+            <con:elements>
+              <con:path>//HTML[1]/@lang</con:path>
+              <con:element>@lang</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>en</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/link[1]</con:path>
+              <con:element>link</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/link[1]/@rel</con:path>
+              <con:element>@rel</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>alternate</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/link[1]/@type</con:path>
+              <con:element>@type</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>text/xml</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/link[1]/@href</con:path>
+              <con:element>@href</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?disco</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/STYLE[1]</con:path>
+              <con:element>STYLE</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>#content{ FONT-SIZE: 0.7em; PADDING-BOTTOM: 2em; MARGIN-LEFT: 30px}BODY{MARGIN-TOP: 0px; MARGIN-LEFT: 0px; COLOR: #000000; FONT-FAMILY: Verdana; BACKGROUND-COLOR: white}P{MARGIN-TOP: 0px; MARGIN-BOTTOM: 12px; COLOR: #000000; FONT-FAMILY: Verdana}PRE{BORDER-RIGHT: #f0f0e0 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #f0f0e0 1px solid; MARGIN-TOP: -5px; PADDING-LEFT: 5px; FONT-SIZE: 1.2em; PADDING-BOTTOM: 5px; BORDER-LEFT: #f0f0e0 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #f0f0e0 1px solid; FONT-FAMILY: Courier New; BACKGROUND-COLOR: #e5e5cc}.heading1{MARGIN-TOP: 0px; PADDING-LEFT: 15px; FONT-WEIGHT: normal; FONT-SIZE: 26px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 3px; MARGIN-LEFT: -30px; WIDTH: 100%; COLOR: #ffffff; PADDING-TOP: 10px; FONT-FAMILY: Tahoma; BACKGROUND-COLOR: #003366}.intro{display: block; font-size: 1em;}</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/STYLE[1]/@type</con:path>
+              <con:element>@type</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>text/css</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/TITLE[1]</con:path>
+              <con:element>TITLE</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>UserService Service</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/@id</con:path>
+              <con:element>@id</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>content</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/@role</con:path>
+              <con:element>@role</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>main</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h1[1]</con:path>
+              <con:element>h1</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserService Service</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h1[1]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>heading1</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/BR[1]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>You have created a service.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[1]</con:path>
+              <con:element>P</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>To test this service, you will need to create a client and use it to call the service. You can do this using the svcutil.exe tool from the command line with the following syntax:</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[1]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/BR[1]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/PRE[1]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>svcutil.exe</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/PRE[1]/A[1]</con:path>
+              <con:element>A</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?wsdl</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/PRE[1]/A[1]/@HREF</con:path>
+              <con:element>@HREF</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?wsdl</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[2]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>You can also access the service description as a single file:</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[2]/BR[1]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[2]/PRE[1]/A[1]</con:path>
+              <con:element>A</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?singleWsdl</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[2]/PRE[1]/A[1]/@HREF</con:path>
+              <con:element>@HREF</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?singleWsdl</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[2]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[2]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>This will generate a configuration file and a code file that contains the client class. Add the two files to your client application and use the generated client class to call the Service. For example:</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[2]/BR[1]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h2[1]</con:path>
+              <con:element>h2</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>C#</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h2[1]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/br[1]</con:path>
+              <con:element>br</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[1]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>class</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[1]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[2]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Test</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[2]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[3]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>static void</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[3]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[4]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserServiceClient</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[4]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[5]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>new</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[5]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[6]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserServiceClient</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[6]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[7]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>// Use the 'client' variable to call operations on the service.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[7]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>darkgreen</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[8]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>// Always close the client.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[8]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>darkgreen</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/BR[2]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h2[2]</con:path>
+              <con:element>h2</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Visual Basic</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h2[2]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/br[2]</con:path>
+              <con:element>br</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[1]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Class</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[1]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[2]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Test</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[2]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[3]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Shared Sub</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[3]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[4]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Dim</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[4]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[5]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserServiceClient</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[5]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[6]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>New</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[6]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[7]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserServiceClient</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[7]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[8]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>' Use the 'client' variable to call operations on the service.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[8]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>darkgreen</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[9]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>' Always close the client.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[9]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>darkgreen</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[10]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>End Sub</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[10]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[11]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>End Class</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[11]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage><![CDATA[<HTML lang="en">
+   <HEAD>
+      <link rel="alternate" type="text/xml" href="https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?disco"/>
+      <STYLE type="text/css">#content{ FONT-SIZE: 0.7em; PADDING-BOTTOM: 2em; MARGIN-LEFT: 30px}BODY{MARGIN-TOP: 0px; MARGIN-LEFT: 0px; COLOR: #000000; FONT-FAMILY: Verdana; BACKGROUND-COLOR: white}P{MARGIN-TOP: 0px; MARGIN-BOTTOM: 12px; COLOR: #000000; FONT-FAMILY: Verdana}PRE{BORDER-RIGHT: #f0f0e0 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #f0f0e0 1px solid; MARGIN-TOP: -5px; PADDING-LEFT: 5px; FONT-SIZE: 1.2em; PADDING-BOTTOM: 5px; BORDER-LEFT: #f0f0e0 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #f0f0e0 1px solid; FONT-FAMILY: Courier New; BACKGROUND-COLOR: #e5e5cc}.heading1{MARGIN-TOP: 0px; PADDING-LEFT: 15px; FONT-WEIGHT: normal; FONT-SIZE: 26px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 3px; MARGIN-LEFT: -30px; WIDTH: 100%; COLOR: #ffffff; PADDING-TOP: 10px; FONT-FAMILY: Tahoma; BACKGROUND-COLOR: #003366}.intro{display: block; font-size: 1em;}</STYLE>
+      <TITLE>UserService Service</TITLE>
+   </HEAD>
+   <BODY>
+      <DIV id="content" role="main">
+         <h1 class="heading1">UserService Service</h1>
+         <BR/>
+         <P class="intro">
+            You have created a service.
+            <P class="intro">To test this service, you will need to create a client and use it to call the service. You can do this using the svcutil.exe tool from the command line with the following syntax:</P>
+            <BR/>
+            <PRE>
+               svcutil.exe
+               <A HREF="https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?wsdl">https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?wsdl</A>
+            </PRE>
+            <P>
+               You can also access the service description as a single file:
+               <BR/>
+               <PRE>
+                  <A HREF="https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?singleWsdl">https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?singleWsdl</A>
+               </PRE>
+            </P>
+         </P>
+         <P class="intro">
+            This will generate a configuration file and a code file that contains the client class. Add the two files to your client application and use the generated client class to call the Service. For example:
+            <BR/>
+         </P>
+         <h2 class="intro">C#</h2>
+         <br/>
+         <PRE>
+            <font color="blue">class</font>
+            <font color="black">Test</font>
+            {
+            <font color="blue">static void</font>
+            Main()
+    {
+            <font color="black">UserServiceClient</font>
+            client =
+            <font color="blue">new</font>
+            <font color="black">UserServiceClient</font>
+            ();
+            <font color="darkgreen">// Use the 'client' variable to call operations on the service.</font>
+            <font color="darkgreen">// Always close the client.</font>
+            client.Close();
+    }
+}
+         </PRE>
+         <BR/>
+         <h2 class="intro">Visual Basic</h2>
+         <br/>
+         <PRE>
+            <font color="blue">Class</font>
+            <font color="black">Test</font>
+            <font color="blue">Shared Sub</font>
+            Main()
+            <font color="blue">Dim</font>
+            client As
+            <font color="black">UserServiceClient</font>
+            =
+            <font color="blue">New</font>
+            <font color="black">UserServiceClient</font>
+            ()
+            <font color="darkgreen">' Use the 'client' variable to call operations on the service.</font>
+            <font color="darkgreen">' Always close the client.</font>
+            client.Close()
+            <font color="blue">End Sub</font>
+            <font color="blue">End Class</font>
+         </PRE>
+      </DIV>
+   </BODY>
+</HTML>]]></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="d9765a7e-f9cc-46de-9e86-cb11b9e9df4d">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="a0bbae49-022a-4432-a0f7-fbe0a0dfb405">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="91985573-3c7a-4063-bc2c-0c2f89d891e5">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="607f5d47-d2a7-4a1b-ab4a-d937049a1407">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="ac507401-eff7-4a98-808d-ad46d99bf22e">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="0a1db645-1d20-4a2c-885a-6fc3f04c10e3">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="bdf92b0b-3c2f-4766-afe7-a4b3145727ac">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b6de6a4e-6e95-434a-b59f-add26213977e">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="06283f68-3f31-49fe-b78d-c0e323fa015a">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="9fb8bef7-8b14-452f-8270-86d184a79849">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="User_Service_Up (QUA User Service (17))" id="af177b55-7eaf-42c4-9ad1-54dce1cb3254">
+    <con:settings/>
+    <con:config service="User Service" resourcePath="/UserService.svc" methodName="Service_Availability" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="User_Service_Up (QUA User Service (17))" id="2703135a-5278-47eb-ac97-cbf4c79598e3" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:request/>
+        <con:originalUri>https://mn-qua-haweb15.oldrepublictitle.com/UserService.svc</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="8c7dcb1b-b067-4530-bff1-f9a5786a6fe9" name="Valid HTTP Status Codes (200)">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="c0073a1d-dbf6-4bd7-b7ca-c51bb2076547" name="Response SLA (200)">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="DataAndMetadataAssertion" id="2de49e8e-8d69-4f54-b6eb-f3c1b1e815da" name="User Service Response">
+          <con:configuration xsi:type="con:DataAndMetadataAssertion">
+            <con:mode>Received Data</con:mode>
+            <con:elements>
+              <con:path>//HTML[1]/@lang</con:path>
+              <con:element>@lang</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>en</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/link[1]</con:path>
+              <con:element>link</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/link[1]/@rel</con:path>
+              <con:element>@rel</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>alternate</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/link[1]/@type</con:path>
+              <con:element>@type</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>text/xml</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/link[1]/@href</con:path>
+              <con:element>@href</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?disco</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/STYLE[1]</con:path>
+              <con:element>STYLE</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>#content{ FONT-SIZE: 0.7em; PADDING-BOTTOM: 2em; MARGIN-LEFT: 30px}BODY{MARGIN-TOP: 0px; MARGIN-LEFT: 0px; COLOR: #000000; FONT-FAMILY: Verdana; BACKGROUND-COLOR: white}P{MARGIN-TOP: 0px; MARGIN-BOTTOM: 12px; COLOR: #000000; FONT-FAMILY: Verdana}PRE{BORDER-RIGHT: #f0f0e0 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #f0f0e0 1px solid; MARGIN-TOP: -5px; PADDING-LEFT: 5px; FONT-SIZE: 1.2em; PADDING-BOTTOM: 5px; BORDER-LEFT: #f0f0e0 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #f0f0e0 1px solid; FONT-FAMILY: Courier New; BACKGROUND-COLOR: #e5e5cc}.heading1{MARGIN-TOP: 0px; PADDING-LEFT: 15px; FONT-WEIGHT: normal; FONT-SIZE: 26px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 3px; MARGIN-LEFT: -30px; WIDTH: 100%; COLOR: #ffffff; PADDING-TOP: 10px; FONT-FAMILY: Tahoma; BACKGROUND-COLOR: #003366}.intro{display: block; font-size: 1em;}</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/STYLE[1]/@type</con:path>
+              <con:element>@type</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>text/css</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/HEAD[1]/TITLE[1]</con:path>
+              <con:element>TITLE</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>UserService Service</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/@id</con:path>
+              <con:element>@id</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>content</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/@role</con:path>
+              <con:element>@role</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>main</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h1[1]</con:path>
+              <con:element>h1</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserService Service</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h1[1]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>heading1</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/BR[1]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>You have created a service.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[1]</con:path>
+              <con:element>P</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>To test this service, you will need to create a client and use it to call the service. You can do this using the svcutil.exe tool from the command line with the following syntax:</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[1]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/BR[1]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/PRE[1]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>svcutil.exe</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/PRE[1]/A[1]</con:path>
+              <con:element>A</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?wsdl</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/PRE[1]/A[1]/@HREF</con:path>
+              <con:element>@HREF</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?wsdl</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[2]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>You can also access the service description as a single file:</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[2]/BR[1]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[2]/PRE[1]/A[1]</con:path>
+              <con:element>A</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?singleWsdl</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[1]/P[2]/PRE[1]/A[1]/@HREF</con:path>
+              <con:element>@HREF</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?singleWsdl</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[2]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[2]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>This will generate a configuration file and a code file that contains the client class. Add the two files to your client application and use the generated client class to call the Service. For example:</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/P[2]/BR[1]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h2[1]</con:path>
+              <con:element>h2</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>C#</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h2[1]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/br[1]</con:path>
+              <con:element>br</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[1]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>class</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[1]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[2]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Test</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[2]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[3]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>static void</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[3]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[4]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserServiceClient</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[4]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[5]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>new</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[5]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[6]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserServiceClient</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[6]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[7]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>// Use the 'client' variable to call operations on the service.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[7]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>darkgreen</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[8]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>// Always close the client.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[1]/font[8]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>darkgreen</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/BR[2]</con:path>
+              <con:element>BR</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h2[2]</con:path>
+              <con:element>h2</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Visual Basic</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/h2[2]/@class</con:path>
+              <con:element>@class</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>intro</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/br[2]</con:path>
+              <con:element>br</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[1]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Class</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[1]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[2]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Test</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[2]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[3]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Shared Sub</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[3]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]</con:path>
+              <con:element>#text</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[4]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Dim</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[4]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[5]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserServiceClient</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[5]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[6]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>New</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[6]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[7]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>UserServiceClient</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[7]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>black</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[8]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>' Use the 'client' variable to call operations on the service.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[8]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>darkgreen</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[9]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>' Always close the client.</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[9]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>darkgreen</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[10]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>End Sub</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[10]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[11]</con:path>
+              <con:element>font</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>End Class</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:path>//HTML[1]/BODY[1]/DIV[1]/PRE[2]/font[11]/@color</con:path>
+              <con:element>@color</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>blue</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage><![CDATA[<HTML lang="en">
+   <HEAD>
+      <link rel="alternate" type="text/xml" href="https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?disco"/>
+      <STYLE type="text/css">#content{ FONT-SIZE: 0.7em; PADDING-BOTTOM: 2em; MARGIN-LEFT: 30px}BODY{MARGIN-TOP: 0px; MARGIN-LEFT: 0px; COLOR: #000000; FONT-FAMILY: Verdana; BACKGROUND-COLOR: white}P{MARGIN-TOP: 0px; MARGIN-BOTTOM: 12px; COLOR: #000000; FONT-FAMILY: Verdana}PRE{BORDER-RIGHT: #f0f0e0 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #f0f0e0 1px solid; MARGIN-TOP: -5px; PADDING-LEFT: 5px; FONT-SIZE: 1.2em; PADDING-BOTTOM: 5px; BORDER-LEFT: #f0f0e0 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #f0f0e0 1px solid; FONT-FAMILY: Courier New; BACKGROUND-COLOR: #e5e5cc}.heading1{MARGIN-TOP: 0px; PADDING-LEFT: 15px; FONT-WEIGHT: normal; FONT-SIZE: 26px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 3px; MARGIN-LEFT: -30px; WIDTH: 100%; COLOR: #ffffff; PADDING-TOP: 10px; FONT-FAMILY: Tahoma; BACKGROUND-COLOR: #003366}.intro{display: block; font-size: 1em;}</STYLE>
+      <TITLE>UserService Service</TITLE>
+   </HEAD>
+   <BODY>
+      <DIV id="content" role="main">
+         <h1 class="heading1">UserService Service</h1>
+         <BR/>
+         <P class="intro">
+            You have created a service.
+            <P class="intro">To test this service, you will need to create a client and use it to call the service. You can do this using the svcutil.exe tool from the command line with the following syntax:</P>
+            <BR/>
+            <PRE>
+               svcutil.exe
+               <A HREF="https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?wsdl">https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?wsdl</A>
+            </PRE>
+            <P>
+               You can also access the service description as a single file:
+               <BR/>
+               <PRE>
+                  <A HREF="https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?singleWsdl">https://mn-qua-haweb15.oldrepublictitle.com:8179/UserService.svc?singleWsdl</A>
+               </PRE>
+            </P>
+         </P>
+         <P class="intro">
+            This will generate a configuration file and a code file that contains the client class. Add the two files to your client application and use the generated client class to call the Service. For example:
+            <BR/>
+         </P>
+         <h2 class="intro">C#</h2>
+         <br/>
+         <PRE>
+            <font color="blue">class</font>
+            <font color="black">Test</font>
+            {
+            <font color="blue">static void</font>
+            Main()
+    {
+            <font color="black">UserServiceClient</font>
+            client =
+            <font color="blue">new</font>
+            <font color="black">UserServiceClient</font>
+            ();
+            <font color="darkgreen">// Use the 'client' variable to call operations on the service.</font>
+            <font color="darkgreen">// Always close the client.</font>
+            client.Close();
+    }
+}
+         </PRE>
+         <BR/>
+         <h2 class="intro">Visual Basic</h2>
+         <br/>
+         <PRE>
+            <font color="blue">Class</font>
+            <font color="black">Test</font>
+            <font color="blue">Shared Sub</font>
+            Main()
+            <font color="blue">Dim</font>
+            client As
+            <font color="black">UserServiceClient</font>
+            =
+            <font color="blue">New</font>
+            <font color="black">UserServiceClient</font>
+            ()
+            <font color="darkgreen">' Use the 'client' variable to call operations on the service.</font>
+            <font color="darkgreen">' Always close the client.</font>
+            client.Close()
+            <font color="blue">End Sub</font>
+            <font color="blue">End Class</font>
+         </PRE>
+      </DIV>
+   </BODY>
+</HTML>]]></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="d9765a7e-f9cc-46de-9e86-cb11b9e9df4d">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="a0bbae49-022a-4432-a0f7-fbe0a0dfb405">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="91985573-3c7a-4063-bc2c-0c2f89d891e5">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="607f5d47-d2a7-4a1b-ab4a-d937049a1407">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="ac507401-eff7-4a98-808d-ad46d99bf22e">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="0a1db645-1d20-4a2c-885a-6fc3f04c10e3">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="bdf92b0b-3c2f-4766-afe7-a4b3145727ac">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b6de6a4e-6e95-434a-b59f-add26213977e">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="06283f68-3f31-49fe-b78d-c0e323fa015a">
+            <con:authProfile>Basic</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="9fb8bef7-8b14-452f-8270-86d184a79849">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="d9765a7e-f9cc-46de-9e86-cb11b9e9df4d">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="a0bbae49-022a-4432-a0f7-fbe0a0dfb405">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="91985573-3c7a-4063-bc2c-0c2f89d891e5">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="607f5d47-d2a7-4a1b-ab4a-d937049a1407">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="ac507401-eff7-4a98-808d-ad46d99bf22e">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="0a1db645-1d20-4a2c-885a-6fc3f04c10e3">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="bdf92b0b-3c2f-4766-afe7-a4b3145727ac">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="b6de6a4e-6e95-434a-b59f-add26213977e">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="06283f68-3f31-49fe-b78d-c0e323fa015a">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="9fb8bef7-8b14-452f-8270-86d184a79849">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

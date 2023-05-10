@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="725776ea-49b6-4b4a-bd67-e08f24f4a10c" name="AgencyLookupService" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="725776ea-49b6-4b4a-bd67-e08f24f4a10cfileName">AgencyLookupService</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

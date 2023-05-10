@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="d40f7bee-65da-4b71-aac8-15530f8c6f56" name="UserService" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="d40f7bee-65da-4b71-aac8-15530f8c6f56fileName">UserService</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

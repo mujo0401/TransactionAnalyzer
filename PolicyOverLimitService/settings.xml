@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="7f93e18c-8459-4e1c-b2c9-541632e9081c" name="PolicyOverLimitService" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7f93e18c-8459-4e1c-b2c9-541632e9081cfileName">PolicyOverLimitService</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

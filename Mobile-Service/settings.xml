@@ -11,33 +11,4 @@
     </con:part>
   </con:definitionCache>
   <con:endpoints/>
-  <con:environmentSpec>
-    <con:entry environmentId="fcfae6e2-7f45-4acd-aa43-e89e6c07e88c">
-      <con:authProfile>Inherit From Parent</con:authProfile>
-    </con:entry>
-    <con:entry environmentId="c71b440d-5965-4751-8c7b-8ed8e0a9debc">
-      <con:authProfile>Inherit From Parent</con:authProfile>
-    </con:entry>
-    <con:entry environmentId="01d715ab-31a1-4f8b-94d1-e6756c5fa1fb">
-      <con:authProfile>Inherit From Parent</con:authProfile>
-    </con:entry>
-    <con:entry environmentId="a1862c8a-8fbf-480a-97bd-a0dadb8ce867">
-      <con:authProfile>Inherit From Parent</con:authProfile>
-    </con:entry>
-    <con:entry environmentId="b9a429f0-139c-455b-91bc-50b995f0f3e1">
-      <con:authProfile>Inherit From Parent</con:authProfile>
-    </con:entry>
-    <con:entry environmentId="50e84a43-c218-4346-9a29-d442369cbde4">
-      <con:authProfile>Inherit From Parent</con:authProfile>
-    </con:entry>
-    <con:entry environmentId="f60abdcc-733e-4a94-8ed8-ba99de758406">
-      <con:authProfile>Inherit From Parent</con:authProfile>
-    </con:entry>
-    <con:entry environmentId="db574a40-44cd-4d98-a1c4-16fa4aa5ea67">
-      <con:authProfile>Inherit From Parent</con:authProfile>
-    </con:entry>
-    <con:entry environmentId="dd811698-9f1e-4a0f-a8ca-73cf75743d35">
-      <con:authProfile>Inherit From Parent</con:authProfile>
-    </con:entry>
-  </con:environmentSpec>
 </con:interface>

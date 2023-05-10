@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Commissionws.svc" path="/Commissionws.svc" id="74dcc169-e7e3-437e-bbbf-e044c6e34eaf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="74dcc169-e7e3-437e-bbbf-e044c6e34eaffileName">Commissionws.svc</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Service Availability" id="63dcc8d8-76b4-4f54-a569-e4409087fad1" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:request name="Contact_service" id="a1437aba-6cc1-435b-a546-8ea36b67b038" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint xsi:nil="true"/>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="442cfda5-ce0d-4ee4-83ba-c81f89145970" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="UserSvc_Test" searchProperties="true" timeout="0" amfEndpoint="https://mn-msp-haweb17.oldrepublictitle.com:8179" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="442cfda5-ce0d-4ee4-83ba-c81f89145970fileName">UserSvc_Test</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="ResolveEnv_User_Dev" id="03a112bd-1f63-4217-af96-4ec730ca728a">
+    <con:settings/>
+    <con:config>
+      <script>import com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase
+
+def testCase = testRunner.testCase
+def endpoints = ['https://mn-dev-haweb15.oldrepublictitle.com:8179', 'https://mn-dev-haweb16.oldrepublictitle.com:8179', 'https://mn-dev-haweb17.oldrepublictitle.com:8179']
+
+for (endpoint in endpoints) {
+    if (endpoint == null) {
+        endpoint = 'https://mn-dev-haweb15.oldrepublictitle.com:8179'
+    }
+    testCase.setAmfEndpoint(endpoint)
+
+
+       def testStep_User = testCase.testSteps['UserService_Status_Dev']
+    if (testStep_User != null) {
+        testStep_User.setPropertyValue('Endpoint', endpoint)
+        testStep_User.run(testRunner, context)
+    } else {
+        log.error("Test step 'UserService_Status_Dev' not found")
+    }
+  
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="ResolveEnv_User_QUA" id="c02a46db-7bfb-47e5-9c4f-b16f02da4cdb">
+    <con:settings/>
+    <con:config>
+      <script>import com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase
+
+def testCase = testRunner.testCase
+def endpoints = ['https://mn-qua-haweb15.oldrepublictitle.com:8179', 'https://mn-qua-haweb16.oldrepublictitle.com:8179', 'https://mn-qua-haweb17.oldrepublictitle.com:8179']
+
+for (endpoint in endpoints) {
+    if (endpoint == null) {
+        endpoint = 'https://mn-qua-haweb15.oldrepublictitle.com:8179'
+    }
+    testCase.setAmfEndpoint(endpoint)
+
+
+       def testStep_User = testCase.testSteps['UserService_Status_QUA']
+    if (testStep_User != null) {
+        testStep_User.setPropertyValue('Endpoint', endpoint)
+        testStep_User.run(testRunner, context)
+    } else {
+        log.error("Test step 'UserService_Status_QUA' not found")
+    }
+  
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="ResolveEnv_User_Prod" id="7a7dd85a-b52b-4470-8fb2-e5016b8a5d62">
+    <con:settings/>
+    <con:config>
+      <script>import com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase
+
+def testCase = testRunner.testCase
+def endpoints = ['https://mn-msp-haweb15.oldrepublictitle.com:8179', 'https://mn-msp-haweb16.oldrepublictitle.com:8179', 'https://mn-msp-haweb17.oldrepublictitle.com:8179']
+
+for (endpoint in endpoints) {
+    if (endpoint == null) {
+        endpoint = 'https://mn-msp-haweb15.oldrepublictitle.com:8179'
+    }
+    testCase.setAmfEndpoint(endpoint)
+
+
+       def testStep_User = testCase.testSteps['UserService_Status_Prod']
+    if (testStep_User != null) {
+        testStep_User.setPropertyValue('Endpoint', endpoint)
+        testStep_User.run(testRunner, context)
+    } else {
+        log.error("Test step 'UserService_Status_Prod' not found")
+    }
+  
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="UserService_Status_Dev" id="04860290-bee9-4021-87f8-ec87d7ed88c4">
+    <con:settings/>
+    <con:config service="User Service" resourcePath="/UserService.svc" methodName="Service_Availability" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="UserService_Status_Dev" id="2703135a-5278-47eb-ac97-cbf4c79598e3" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://mn-dev-haweb17.oldrepublictitle.com:8179</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://mn-qua-haweb15.oldrepublictitle.com/UserService.svc</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes (200)" id="318af1d8-369c-45ee-9e9d-f7cfc4f4b409">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" name="Response SLA (200)" id="51d73fdd-274d-4e76-8fb3-58cf19bca00f">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Sensitive Information Exposure" name="Sensitive Information Exposure" id="c607e4df-2af8-404a-97ae-37dac94838c5">
+          <con:configuration>
+            <AssertionSpecificExposureList>~(?s).*Runtime (E|e)rror.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*SQLSTATE: [A-Z0-9].*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(s|S)tack:.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(s|S)yntax (e|E)rror\s.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*\w+/\d{1,2}(\.\d{1,3})+.*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*Invalid column name\s.*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*
+            (ORA|EXP|IMP|KUP|UDE|UDI|DBV|LCD|QSM|OCI|RMAN|LFI|PLS|PLQ|AMD|CLSR|PROC|PROT|TNS|NNC|NLP|NNF|NMP|NCR|NZE|O2F|O2I|O2U|PCB|PCC|SQL|AUD|IMG|VID|DRG|LPX|LSX)-\d{5}\s
+        .*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(p|P)owered by:? ([a-zA-Z]+)( [a-zA-Z]+){0,3}( |/)\d\.\d{1,2}\.\d{1,3}.*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*at [\w\$]+(\.[\w\$&lt;>\[\],]+|\.\.ctor)+(\((([\w\$&lt;>\`\[\]]+ [\w\$&lt;>]+, )*(([\w\$&lt;>\`\[\]]+
+            [\w\$&lt;>]+)))\)|\(\))
+        .*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*&lt;\w+:frame\s*class=".*"\s*line=".*"\s*method=".*"\s*/>.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*Traceback \(most recent call last\):.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*((I|i)ncorrect|(I|i)nvalid) (s|S)yntax.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(s|S)tack ?(t|T)race.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(e|E)rror was:\s.*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(v|V)ersion:? \d\.\d{1,2}\.{1,3}-?.*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*from [\w\$]+(\.[\w\$&lt;>]+)+:\d+:in `.+'.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*Error in process &lt;\d+\.\d+\.\d+> with exit value:.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*STACK\s?TRACE.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*Warning: [\w]+\(\) .+ in .+ on line \d{1,6}.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*((A|a)pache|vBulletin|MySQL|PostgreSQL|phpBB|Internet Information Services)( |/)\d{1,2}(\.\d{1,3})+
+        .*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*at [a-zA-Z][\w\$]*(\.[a-zA-Z][\w\$]*)+\((Unknown Source|Native
+            Method|[a-zA-Z][\w\$]*\.([a-zA-Z]{3,5}):\d+)\)
+        .*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*[^\s]+\.rb:\d+:in `.+'.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*File ".+", line [0-9]{1,6}, in.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <IncludeProjectSpecific>true</IncludeProjectSpecific>
+            <IncludeGlobal>false</IncludeGlobal>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="$filter" value=""/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>$filter</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="UserService_Status _QUA" id="0231a330-a885-45e8-966d-88d6f80387bb">
+    <con:settings/>
+    <con:config service="User Service" resourcePath="/UserService.svc" methodName="Service_Availability" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="UserService_Status _QUA" id="2703135a-5278-47eb-ac97-cbf4c79598e3" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://mn-qua-haweb17.oldrepublictitle.com:8179</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://mn-qua-haweb15.oldrepublictitle.com/UserService.svc</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes (200)" id="a4a998e6-c1a3-4a12-b0a0-cba474f98c23">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" name="Response SLA (200)" id="e9c41909-56bb-4605-8a77-3bcc81e5a2e6">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Sensitive Information Exposure" name="Sensitive Information Exposure" id="12e170b7-72c6-4c1b-8b21-90ef3a3ca52a">
+          <con:configuration>
+            <AssertionSpecificExposureList>~(?s).*Runtime (E|e)rror.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*SQLSTATE: [A-Z0-9].*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(s|S)tack:.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(s|S)yntax (e|E)rror\s.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*\w+/\d{1,2}(\.\d{1,3})+.*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*Invalid column name\s.*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*
+            (ORA|EXP|IMP|KUP|UDE|UDI|DBV|LCD|QSM|OCI|RMAN|LFI|PLS|PLQ|AMD|CLSR|PROC|PROT|TNS|NNC|NLP|NNF|NMP|NCR|NZE|O2F|O2I|O2U|PCB|PCC|SQL|AUD|IMG|VID|DRG|LPX|LSX)-\d{5}\s
+        .*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(p|P)owered by:? ([a-zA-Z]+)( [a-zA-Z]+){0,3}( |/)\d\.\d{1,2}\.\d{1,3}.*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*at [\w\$]+(\.[\w\$&lt;>\[\],]+|\.\.ctor)+(\((([\w\$&lt;>\`\[\]]+ [\w\$&lt;>]+, )*(([\w\$&lt;>\`\[\]]+
+            [\w\$&lt;>]+)))\)|\(\))
+        .*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*&lt;\w+:frame\s*class=".*"\s*line=".*"\s*method=".*"\s*/>.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*Traceback \(most recent call last\):.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*((I|i)ncorrect|(I|i)nvalid) (s|S)yntax.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(s|S)tack ?(t|T)race.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(e|E)rror was:\s.*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(v|V)ersion:? \d\.\d{1,2}\.{1,3}-?.*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*from [\w\$]+(\.[\w\$&lt;>]+)+:\d+:in `.+'.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*Error in process &lt;\d+\.\d+\.\d+> with exit value:.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*STACK\s?TRACE.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*Warning: [\w]+\(\) .+ in .+ on line \d{1,6}.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*((A|a)pache|vBulletin|MySQL|PostgreSQL|phpBB|Internet Information Services)( |/)\d{1,2}(\.\d{1,3})+
+        .*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*at [a-zA-Z][\w\$]*(\.[a-zA-Z][\w\$]*)+\((Unknown Source|Native
+            Method|[a-zA-Z][\w\$]*\.([a-zA-Z]{3,5}):\d+)\)
+        .*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*[^\s]+\.rb:\d+:in `.+'.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*File ".+", line [0-9]{1,6}, in.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <IncludeProjectSpecific>true</IncludeProjectSpecific>
+            <IncludeGlobal>false</IncludeGlobal>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="$filter" value=""/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>$filter</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="UserService_Status_Prod" id="ab0e608e-c629-4e5a-b076-fd91642762ae">
+    <con:settings/>
+    <con:config service="User Service" resourcePath="/UserService.svc" methodName="Service_Availability" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="UserService_Status_Prod" id="2703135a-5278-47eb-ac97-cbf4c79598e3" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://mn-msp-haweb17.oldrepublictitle.com:8179</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://mn-qua-haweb15.oldrepublictitle.com/UserService.svc</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes (200)" id="8baff4a4-719d-4286-b5b0-569e5aee7741">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" name="Response SLA (200)" id="e6c3ddad-5021-4e0e-a134-a57f244bf38e">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Sensitive Information Exposure" name="Sensitive Information Exposure" id="da379785-ef41-4c52-81ea-2ff891b64d0b">
+          <con:configuration>
+            <AssertionSpecificExposureList>~(?s).*Runtime (E|e)rror.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*SQLSTATE: [A-Z0-9].*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(s|S)tack:.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(s|S)yntax (e|E)rror\s.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*\w+/\d{1,2}(\.\d{1,3})+.*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*Invalid column name\s.*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*
+            (ORA|EXP|IMP|KUP|UDE|UDI|DBV|LCD|QSM|OCI|RMAN|LFI|PLS|PLQ|AMD|CLSR|PROC|PROT|TNS|NNC|NLP|NNF|NMP|NCR|NZE|O2F|O2I|O2U|PCB|PCC|SQL|AUD|IMG|VID|DRG|LPX|LSX)-\d{5}\s
+        .*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(p|P)owered by:? ([a-zA-Z]+)( [a-zA-Z]+){0,3}( |/)\d\.\d{1,2}\.\d{1,3}.*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*at [\w\$]+(\.[\w\$&lt;>\[\],]+|\.\.ctor)+(\((([\w\$&lt;>\`\[\]]+ [\w\$&lt;>]+, )*(([\w\$&lt;>\`\[\]]+
+            [\w\$&lt;>]+)))\)|\(\))
+        .*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*&lt;\w+:frame\s*class=".*"\s*line=".*"\s*method=".*"\s*/>.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*Traceback \(most recent call last\):.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*((I|i)ncorrect|(I|i)nvalid) (s|S)yntax.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(s|S)tack ?(t|T)race.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(e|E)rror was:\s.*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*(v|V)ersion:? \d\.\d{1,2}\.{1,3}-?.*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*from [\w\$]+(\.[\w\$&lt;>]+)+:\d+:in `.+'.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*Error in process &lt;\d+\.\d+\.\d+> with exit value:.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*STACK\s?TRACE.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*Warning: [\w]+\(\) .+ in .+ on line \d{1,6}.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*((A|a)pache|vBulletin|MySQL|PostgreSQL|phpBB|Internet Information Services)( |/)\d{1,2}(\.\d{1,3})+
+        .*###[Version x.y.z] Exposing version numbers gives
+            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*at [a-zA-Z][\w\$]*(\.[a-zA-Z][\w\$]*)+\((Unknown Source|Native
+            Method|[a-zA-Z][\w\$]*\.([a-zA-Z]{3,5}):\d+)\)
+        .*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*[^\s]+\.rb:\d+:in `.+'.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <AssertionSpecificExposureList>~(?s).*File ".+", line [0-9]{1,6}, in.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
+            <IncludeProjectSpecific>true</IncludeProjectSpecific>
+            <IncludeGlobal>false</IncludeGlobal>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="$filter" value=""/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>$filter</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
