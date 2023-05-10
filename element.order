@@ -11,8 +11,8 @@ Municipality
 Policy
 Product
 Property
-Agency
-AgencyLookup
-Mobile
-PolicyOverLimit
-User
+ADB_API_Service
+AgencyLookupService
+MobileService
+PolicyOverLimitService
+UserService
